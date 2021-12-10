@@ -163,7 +163,7 @@ layui.define('jquery', function(exports){
     //Tab自适应
     ,tabAuto: function(){
       var SCROLL = 'layui-tab-scroll', MORE = 'layui-tab-more', BAR = 'layui-tab-bar'
-      ,CLOSE = 'layui-tab-close', that = this;
+      ,REFRESH = 'layui-tab-refresh', CLOSE = 'layui-tab-close', that = this;
       
       $('.layui-tab').each(function(){
         var othis = $(this)
@@ -187,7 +187,7 @@ layui.define('jquery', function(exports){
             }
           });
         }
-        
+
         //允许关闭
         if(othis.attr('lay-allowClose')){
           title.find('li').each(function(){
