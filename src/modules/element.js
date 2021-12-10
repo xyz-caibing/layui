@@ -123,6 +123,15 @@ layui.define('jquery', function(exports){
         ,index: index
       });
     }
+
+    //Tab刷新
+    ,tabRefresh: function(e, othis){
+      var li = othis || $(this).parent(), index = li.index()
+      ,parents = li.parents('.layui-tab').eq(0)
+      ,item = parents.children('.layui-tab-content').children('.layui-tab-item');
+      var currIframe = $(item[index]).children('iframe');
+      currIframe.attr('src', currIframe.attr('src'));
+    }
     
     //Tab删除
     ,tabDelete: function(e, othis){
@@ -165,6 +174,18 @@ layui.define('jquery', function(exports){
 
         if(that === window && device.ie != 8){
           call.hideTabMore(true)
+        }
+        
+        //允许刷新
+        if(othis.attr('lay-allowRefresh')){
+          title.find('li').each(function(){
+            var li = $(this);
+            if(!li.find('.'+REFRESH)[0]){
+              var close = $('<i class="layui-icon layui-unselect '+ REFRESH +'">&#xe669;</i>');
+              close.on('click', call.tabRefresh);
+              li.append(close);
+            }
+          });
         }
         
         //允许关闭

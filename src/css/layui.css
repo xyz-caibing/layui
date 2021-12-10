@@ -1154,6 +1154,9 @@ body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-sh
 
 .layui-tab-content{padding: 15px 0;}
 
+/* Tab 刷新 */.layui-tab-title li .layui-tab-refresh{position: relative; display: inline-block; width: 18px; height: 18px; line-height: 20px; margin-left: 8px; top: 1px; text-align: center; font-size: 14px; color: #c2c2c2; transition: all .2s; -webkit-transition: all .2s;}
+.layui-tab-title li .layui-tab-refresh:hover{border-radius: 2px; background-color: #FF5722; color: #fff;}
+
 /* Tab 关闭 */.layui-tab-title li .layui-tab-close{position: relative; display: inline-block; width: 18px; height: 18px; line-height: 20px; margin-left: 8px; top: 1px; text-align: center; font-size: 14px; color: #c2c2c2; transition: all .2s; -webkit-transition: all .2s;}
 .layui-tab-title li .layui-tab-close:hover{border-radius: 2px; background-color: #FF5722; color: #fff;}
 
