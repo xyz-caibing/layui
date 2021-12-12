@@ -448,7 +448,8 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
       filter: {
         title: '筛选列'
         ,layEvent: 'LAYTABLE_COLS'
-        ,icon: 'layui-icon-cols'
+        ,icon: 'kico icon-Filter'
+        // ,icon: 'layui-icon-cols'
       }
       ,exports: {
         title: '导出'
@@ -639,6 +640,7 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
     that.fullSize(); //让表格铺满
     that.setColsWidth(); //自适应列宽
     that.scrollPatch(); //滚动条补丁
+    if (layui.tableFilter) { layui.tableFilter.resize(that.config)} // 这是要添加的那一行
   };
   
   //表格重载
@@ -1746,7 +1748,7 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
       
       that.layHeader.scrollLeft(scrollLeft);
       that.layTotal.scrollLeft(scrollLeft);
-      that.layFixed.find(ELEM_BODY).scrollTop(scrollTop);
+      that.layFixed.find(ELEM_BODY+':not(.soul-fixed-scroll)').scrollTop(scrollTop);
       
       layer.close(that.tipsIndex);
     });
