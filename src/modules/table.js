@@ -1,6 +1,6 @@
 
 /*!
- * layui.table 
+ * layui.table v2.6.8.1
  * 数据表格组件
  */
 
