@@ -1247,7 +1247,7 @@
     
     //显示预览
     elemPreview.html(value).css({
-      'color': '#5FB878'
+      'color': '#409eff'
     });
     setTimeout(function(){
       elemPreview.css({
@@ -1300,11 +1300,18 @@
     //范围选择
     if(options.range){
       //补充时分秒
-      lay.each(['startTime', 'endTime'], function(i, item){
+      lay.each(['startTime'], function(i, item){
         that[item] = that[item] || {
           hours: 0
           ,minutes: 0
           ,seconds: 0
+        };
+      });
+      lay.each(['endTime'], function(i, item){
+        that[item] = that[item] || {
+          hours: 23
+          ,minutes: 59
+          ,seconds: 59
         };
       });
       that.calendar(null, index).done(null, 'change');

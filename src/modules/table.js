@@ -1211,7 +1211,7 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
     
     //减去工具栏的高度
     if(options.toolbar){
-      bodyHeight = bodyHeight - (that.layTool.outerHeight() || 50);
+      bodyHeight = bodyHeight - (that.layTool.outerHeight() || 0);
     }
     
     //减去统计朗的高度
@@ -1990,6 +1990,11 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
     document.body.appendChild(alink);
     alink.click();
     document.body.removeChild(alink); 
+  };
+
+  //获取table实例配置
+  table.getThisTable = function(id) {
+    return getThisTableConfig(id);
   };
   
   //重置表格尺寸结构

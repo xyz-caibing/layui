@@ -38,7 +38,7 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-edge-left{border-right-color: #999; border-right-style: solid;}
 /* 单行溢出省略 */.layui-elip{text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
 /* 屏蔽选中 */.layui-unselect,.layui-icon, .layui-disabled{-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none;}
-/* 禁用 */.layui-disabled,.layui-disabled:hover{color: #d2d2d2 !important; cursor: not-allowed !important;}
+/* 禁用 */.layui-disabled,.layui-disabled:hover{color: #d2d2d2 !important; cursor: not-allowed !important;background-color: #f0f0f0 !important;}
 /* 纯圆角 */.layui-circle{border-radius: 100%;}
 .layui-show{display: block !important;}
 .layui-hide{display: none !important;}
@@ -688,7 +688,7 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-form-selectup dl{top: auto; bottom: 42px;}
 .layui-select-none{margin: 5px 0; text-align: center; color: #999;}
 
-.layui-select-disabled .layui-disabled{border-color: #eee !important;}
+.layui-select-disabled .layui-disabled{border-color: #eee !important;background-color: #f0f0f0;}
 .layui-select-disabled .layui-edge{border-top-color: #d2d2d2}
 
 /* 复选框 */.layui-form-checkbox{position: relative; display: inline-block; vertical-align: middle; height: 30px; line-height: 30px; margin-right: 10px; padding-right: 30px; background-color: #fff; cursor: pointer; font-size: 0;  -webkit-transition: .1s linear; transition: .1s linear; box-sizing: border-box;}
@@ -733,7 +733,7 @@ a cite{font-style: normal; *cursor:pointer;}
 .layui-form-radioed,
 .layui-form-radioed>i,
 .layui-form-radio:hover *{color: #0080ff;}
-.layui-radio-disabled>i{color: #eee !important;}
+.layui-radio-disabled>i{color: #666 !important;}
 .layui-radio-disabled *{color: #c2c2c2!important;}
 
 /* 表单方框风格 */.layui-form-pane .layui-form-label{width: 110px; padding: 8px 15px; height: 38px; line-height: 20px; border-width: 1px; border-style: solid; border-radius: 2px 0 0 2px; text-align: center; background-color: #FAFAFA; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; box-sizing: border-box;}

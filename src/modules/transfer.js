@@ -171,7 +171,12 @@ layui.define(['laytpl', 'form'], function(exports){
     });
     that.layData.css({
       height: function(){
-        return options.height - that.layHeader.outerHeight() - that.laySearch.outerHeight() - 2
+        // return options.height - that.layHeader.outerHeight() - that.laySearch.outerHeight() - 2
+        let laySearchOuterHeight = 53;
+        if(!that.config.showSearch) {
+          laySearchOuterHeight = 0;
+        }
+        return options.height - that.layHeader.outerHeight() - laySearchOuterHeight - 2
       }()
     });
     
