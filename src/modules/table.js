@@ -69,6 +69,13 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
     if(!config) hint.error(id ? ('The table instance with ID \''+ id +'\' not found') : 'ID argument required');
     return config || null;
   }
+
+  //获取当前实例Class对象
+  ,getThisTableThat = function(id){
+    var that = thisTable.that[id];
+    if(!that) hint.error(id ? ('The table that with ID \''+ id +'\' not found') : 'ID argument required');
+    return that || null;
+  }
   
   //解析自定义模板数据
   ,parseTempData = function(item3, content, tplData, text){ //表头数据、原始内容、表体数据、是否只返回文本
@@ -1308,7 +1315,14 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
         
         //限制最大高度
         if(options.height){
-          panel.css('max-height', options.height - (that.layTool.outerHeight() || 50));
+          let height = options.height - (that.layTool.outerHeight() || 50);
+          if(that.fullHeightGap) {
+            height = _BODY.height() - that.fullHeightGap;
+            height -= (that.layTool.outerHeight() || 0);
+            height -= (that.layTotal.outerHeight() || 40);
+            if(height < 135) height = 135;
+          }
+          panel.css('max-height', height);
         }
         
         //插入元素
@@ -1995,6 +2009,11 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
   //获取table实例配置
   table.getThisTable = function(id) {
     return getThisTableConfig(id);
+  };
+
+  //获取table实例Class对象
+  table.getThisTableClass = function(id) {
+    return getThisTableThat(id);
   };
   
   //重置表格尺寸结构
