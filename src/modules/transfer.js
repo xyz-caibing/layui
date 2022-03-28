@@ -274,7 +274,7 @@ layui.define(['laytpl', 'form'], function(exports){
     ,options = that.config
     ,arr = [];
     that.layBox.eq(1).find('.'+ ELEM_DATA +' input[type="checkbox"]').each(function(){
-      var isHide = $(this).data('hide');
+      var isHide = false;//$(this).data('hide');
       isHide || arr.push(this.value);
     });
     options.value = arr;

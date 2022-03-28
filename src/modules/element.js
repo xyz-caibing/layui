@@ -63,6 +63,17 @@ layui.define('jquery', function(exports){
     return this;
   };
   
+  //外部Tab刷新
+  Element.prototype.tabRefresh = function(filter, layid, src = false){
+    var TITLE = '.layui-tab-title'
+    ,tabElem = $('.layui-tab[lay-filter='+ filter +']')
+    ,titElem = tabElem.children(TITLE)
+    ,liElem = titElem.find('>li[lay-id="'+ layid +'"]');
+    call.tabClick.call(liElem[0], null, null, liElem);
+    call.tabRefresh(null, liElem, src);
+    return this;
+  };
+  
   //外部Tab切换
   Element.prototype.tabChange = function(filter, layid){
     var TITLE = '.layui-tab-title'
@@ -125,11 +136,14 @@ layui.define('jquery', function(exports){
     }
 
     //Tab刷新
-    ,tabRefresh: function(e, othis){
+    ,tabRefresh: function(e, othis, src = false){
       var li = othis || $(this).parent(), index = li.index()
       ,parents = li.parents('.layui-tab').eq(0)
       ,item = parents.children('.layui-tab-content').children('.layui-tab-item');
       var currIframe = $(item[index]).children('iframe');
+      if(src) {
+        currIframe.attr('src', src);
+      }
       currIframe.attr('src', currIframe.attr('src'));
     }
     
